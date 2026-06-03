@@ -4,8 +4,10 @@
   imports =
     [
       ./hardware-configuration.nix
+#      ./vmhw.nix
       ./modules/shares.nix
       ./modules/jellyfin-stack.nix
+#      ./modules/hardened-ssh.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
