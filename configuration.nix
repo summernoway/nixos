@@ -48,6 +48,8 @@
     btop
     cifs-utils
     hyfetch
+    _7zip-zstd
+    _7zip-zstd-rar
   ];
 
   # some programs need SUID wrappers, can be configured further or are
@@ -64,6 +66,8 @@
   # Open ports in the firewall. 22 for ssh, rest required for NFSv3 support, because windows is garbage. Other ports are enabled per-module
   networking.firewall.allowedTCPPorts = [ 111  2049 4000 4001 4002 20048 22 ];
   networking.firewall.allowedUDPPorts = [ 111  2049 4000 4001 4002 20048 22 ];
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # do not change. defines the version of the configuration language, rather than the OS
   system.stateVersion = "26.05";

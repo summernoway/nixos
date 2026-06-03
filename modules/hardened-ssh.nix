@@ -1,3 +1,5 @@
+# basic slightly hardened ssh configuration parameters
+# added as a module because sometimes i might be lazy, e.g. if im testing this config in a VM
 { config, ... }:
 
 {

@@ -1,5 +1,5 @@
 {
-  description = "NixOS from Scratch";
+  description = "our media server";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-26.05-small";
