@@ -2,7 +2,7 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
       ./modules/shares.nix
       ./modules/jellyfin-stack.nix
@@ -14,30 +14,31 @@
   networking.hostName = "arceus";
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
   time.timeZone = "Europe/London";
 
   # default locale
   i18n.defaultLocale = "en_GB.UTF-8";
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.summer = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "jellyfin" ]; 
-    packages = with pkgs; [
-      tree
-    ];
-  };
-  users.users.melody = {
-    isNormalUser = true;
-    extraGroups = [ "jellyfin" ];
-    packages = with pkgs; [
-      tree
-    ];
+  # define user accounts & associated parameters. other users are created by services if modules are enabled
+  users = {
+      users.summer = {
+      isNormalUser = true;
+      extraGroups = [ "wheel" "jellyfin" ];
+      packages = with pkgs; [
+        tree
+      ];
+    };
+
+    users.melody = {
+      isNormalUser = true;
+      extraGroups = [ "jellyfin" ];
+      packages = with pkgs; [
+        tree
+      ];
+    };
   };
 
-  # List packages installed in system profile.
-  # You can use https://search.nixos.org/ to find more packages (and options).
+  # packages installed system wide
   environment.systemPackages = with pkgs; [
     vim
     wget
@@ -47,7 +48,7 @@
     hyfetch
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
+  # some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.mtr.enable = true;
   programs.gnupg.agent = {
@@ -55,14 +56,14 @@
     enableSSHSupport = true;
   };
 
-  # Enable the OpenSSH daemon.
+  # OpenSSH configuration.
   services.openssh.enable = true;
 
-  # Open ports in the firewall.
+  # Open ports in the firewall. 22 for ssh, rest required for NFSv3 support, because windows is garbage. Other ports are enabled per-module
   networking.firewall.allowedTCPPorts = [ 111  2049 4000 4001 4002 20048 22 ];
   networking.firewall.allowedUDPPorts = [ 111  2049 4000 4001 4002 20048 22 ];
 
+  # do not change. defines the version of the configuration language, rather than the OS
   system.stateVersion = "26.05";
 
 }
-
