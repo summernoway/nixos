@@ -12,10 +12,10 @@
       group = "jellyfin";
 
       # specify data directories
-      dataDir = "/mnt/bebishare/Jellyfin/.data";
-      cacheDir = "/mnt/bebishare/Jellyfin/.cache";
+      dataDir = "/srv/bebishare/Jellyfin/.data";
+      cacheDir = "/srv/bebishare/Jellyfin/.cache";
       logDir = "/var/log/jellyfin";
-      configDir = "/mnt/bebishare/Jellyfin/.config";
+      configDir = "/srv/bebishare/Jellyfin/.config";
 
       # hardware accel for transcoding
       hardwareAcceleration = {

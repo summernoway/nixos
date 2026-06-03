@@ -4,8 +4,8 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-#      ./modules/shares.nix
-#      ./modules/jellyfin-stack.nix
+      ./modules/shares.nix
+      ./modules/jellyfin-stack.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -23,7 +23,14 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.summer = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; 
+    extraGroups = [ "wheel" "jellyfin" ]; 
+    packages = with pkgs; [
+      tree
+    ];
+  };
+  users.users.melody = {
+    isNormalUser = true;
+    extraGroups = [ "jellyfin" ];
     packages = with pkgs; [
       tree
     ];
@@ -37,6 +44,7 @@
     git
     btop
     cifs-utils
+    hyfetch
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -51,8 +59,8 @@
   services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 22 ];
-  networking.firewall.allowedUDPPorts = [ 22 ];
+  networking.firewall.allowedTCPPorts = [ 111  2049 4000 4001 4002 20048 22 ];
+  networking.firewall.allowedUDPPorts = [ 111  2049 4000 4001 4002 20048 22 ];
 
   system.stateVersion = "26.05";
 
