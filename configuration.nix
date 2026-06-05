@@ -3,11 +3,12 @@
 {
   imports =
     [
-      ./hardware-configuration.nix
-#      ./vmhw.nix
-      ./modules/shares.nix
-      ./modules/jellyfin-stack.nix
+#      ./hardware-configuration.nix
+      ./vmhw.nix
+#      ./modules/shares.nix
+#      ./modules/jellyfin-stack.nix
 #      ./modules/hardened-ssh.nix
+      ./modules/nextcloud.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
