@@ -3,12 +3,13 @@
 {
   imports =
     [
-#      ./hardware-configuration.nix
-      ./vmhw.nix
-#      ./modules/shares.nix
-#      ./modules/jellyfin-stack.nix
-#      ./modules/hardened-ssh.nix
-      ./modules/nextcloud.nix
+      ./hardware-configuration.nix
+#      ./vmhw.nix
+      ./modules/hardened-ssh.nix
+      ./modules/shares.nix
+      ./modules/jellyfin-stack.nix
+      ./modules/glance.nix
+#      ./modules/nextcloud.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -49,8 +50,7 @@
     btop
     cifs-utils
     hyfetch
-    _7zip-zstd
-    _7zip-zstd-rar
+    p7zip
   ];
 
   # some programs need SUID wrappers, can be configured further or are
@@ -65,8 +65,8 @@
   services.openssh.enable = true;
 
   # Open ports in the firewall. 22 for ssh, rest required for NFSv3 support, because windows is garbage. Other ports are enabled per-module
-  networking.firewall.allowedTCPPorts = [ 111  2049 4000 4001 4002 20048 22 ];
-  networking.firewall.allowedUDPPorts = [ 111  2049 4000 4001 4002 20048 22 ];
+  networking.firewall.allowedTCPPorts = [ 8888 111  2049 4000 4001 4002 20048 22 ];
+  networking.firewall.allowedUDPPorts = [ 8888 111  2049 4000 4001 4002 20048 22 ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

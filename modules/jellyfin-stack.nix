@@ -38,7 +38,7 @@
       package = pkgs.seerr;
       openFirewall = true;
       port = 5055;
-      configDir = "/etc/seerr";
+      configDir = "/var/lib/seerr";
     };
 
     qbittorrent = {
@@ -54,7 +54,7 @@
       enable = true;
       package = pkgs.prowlarr;
       openFirewall = true; # 9696
-      dataDir = "/etc/prowlarr";
+      dataDir = "/var/lib/prowlarr";
     };
 
     radarr = {
@@ -63,7 +63,7 @@
       group = "jellyfin";
       user = "jellyfin";
       openFirewall = true; # 7878
-      dataDir = "/etc/radarr"; 
+      dataDir = "/var/lib/radarr"; 
     };
 
     sonarr = {
@@ -72,7 +72,7 @@
       group = "jellyfin";
       user = "jellyfin";
       openFirewall = true; # 8989
-      dataDir = "/etc/sonarr";
+      dataDir = "/var/lib/sonarr";
     };
 
     flaresolverr = {
