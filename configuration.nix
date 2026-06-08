@@ -9,7 +9,7 @@
       ./modules/shares.nix
       ./modules/jellyfin-stack.nix
       ./modules/glance.nix
-#      ./modules/nextcloud.nix
+#      ./modules/gitea.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -65,8 +65,8 @@
   services.openssh.enable = true;
 
   # Open ports in the firewall. 22 for ssh, rest required for NFSv3 support, because windows is garbage. Other ports are enabled per-module
-  networking.firewall.allowedTCPPorts = [ 8888 111  2049 4000 4001 4002 20048 22 ];
-  networking.firewall.allowedUDPPorts = [ 8888 111  2049 4000 4001 4002 20048 22 ];
+  networking.firewall.allowedTCPPorts = [ 3000 8888 111  2049 4000 4001 4002 20048 22 ];
+  networking.firewall.allowedUDPPorts = [ 3000 8888 111  2049 4000 4001 4002 20048 22 ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

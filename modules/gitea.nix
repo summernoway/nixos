@@ -10,8 +10,8 @@
     group = "gitea";
     settings = {
       server = {
-        HTTP_PORT = "3000";
+        HTTP_PORT = 3000;
       };
     };
-  }
+  };
 }
