@@ -9,7 +9,6 @@
       ./modules/shares.nix
       ./modules/jellyfin-stack.nix
       ./modules/glance.nix
-#      ./modules/gitea.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
