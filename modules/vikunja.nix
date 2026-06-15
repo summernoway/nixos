@@ -6,11 +6,11 @@
     package = pkgs.vikunja;
     port = 3000;
     frontendScheme = "http";
-    frontendHostname = "arceus";
+    frontendHostname = "localhost";
     database = {
       type = "sqlite";
       user = "vikunja";
-      path = "/var/db/vikunja/vikunja.db";
+      path = "/var/lib/vikunja/vikunja.db";
     };
   };
 }
