@@ -9,6 +9,7 @@
       ];
       repo = "/srv/bebishare/Summer/borgbackups";
       compression = "auto,zstd";
+      encryption.mode = "none";
       startAt = "weekly";
       # retention policy
       prune = {
