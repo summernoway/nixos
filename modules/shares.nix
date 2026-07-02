@@ -8,6 +8,11 @@
     options = [ "bind" ];
     fsType = "none";
   };
+  fileSystems."/export/bebishare" = {
+    device = "/srv/bebishare";
+    options = [ "bind" ];
+    fsType = "none";
+  };
 
   # configures the server
   services.nfs.server = {
@@ -18,39 +23,7 @@
     extraNfsdConfig = '''';
     exports = ''
       /export/moosicgame  *(rw,sync,no_subtree_check)
+      /export/bebishare *(rw,sync,no_subtree_check)
       '';
-    };
-
-  # samba configuration
-  services.samba = {
-    enable = true;
-    openFirewall = true;
-
-    settings = {
-      # general storage/backup + media
-      bebishare = {
-        path = "/srv/bebishare";
-        browseable = "yes";
-        "read only" = "no";
-        "guest ok" = "no";
-        "valid users" = "@jellyfin";
-        "write list" = "@jellyfin";
-        "force group" = "jellyfin";
-        "create mask" = "0660";
-        "directory mask" = "0770";
-      };
-      # smb mirror of the rhythm game share, because windows nfs client sucks
-      moosicgame = {
-        path = "/srv/moosicgame";
-        browseable = "yes";
-        "read only" = "no";
-        "guest ok" = "no";
-        "valid users" = "@jellyfin";
-        "write list" = "@jellyfin";
-        "force group" = "jellyfin";
-        "create mask" = "0660";
-        "directory mask" = "0770";
-      };
-    };
   };
 }
