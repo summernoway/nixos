@@ -32,7 +32,8 @@ etc.
 4. mount filesystems as required
 ```
 mount /dev/sdx (root) /mnt
-mount --mkdir /dev/sdx (boot) /mnt/boot
+mkdir -p /mnt/boot
+mount -o umask=077 /dev/sdx (boot) /mnt/boot
 ```
 5. make directory /mnt/etc
 ```
@@ -53,7 +54,7 @@ vim /mnt/etc/nixos/configuration.nix
 ```
 9. deploy nixos
 ```
-nixos-install --flake /mnt/etc/nixos/.#lugia
+nixos-install --flake /mnt/etc/nixos/.#arceus
 reboot
 ```
 
