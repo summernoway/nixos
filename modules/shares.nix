@@ -1,3 +1,4 @@
+# nfs server configuration to share files between my main system, my partner's system and my laptop
 { config, pkgs, ... }:
 
 {

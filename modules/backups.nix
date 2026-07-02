@@ -4,14 +4,19 @@
 {
   services.borgbackup.jobs = {
     localBackup = {
+      # paths to backup via localBackup job
       paths = [
         "/var/lib"
       ];
+
+      # required settings configured below.
+      # repo = backup location
       repo = "/srv/bebishare/Summer/borgbackups";
       compression = "auto,zstd";
       encryption.mode = "none";
       startAt = "weekly";
-      # retention policy
+
+      # retention policy. only keep past 12 weeks of backups.
       prune = {
         keep = {
           weekly = 12;

@@ -1,3 +1,4 @@
+# web based to do application. used for tickets/reminders to do things around the house.
 { config, pkgs, ... }:
 
 {

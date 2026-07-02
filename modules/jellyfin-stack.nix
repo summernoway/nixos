@@ -1,3 +1,4 @@
+# automated media server stack
 # to do: add secrets support for API keys
 { config, pkgs, ... }:
 
@@ -23,7 +24,7 @@
         type = "qsv";
         device = "/dev/dri/renderD128";
       };
-      
+
       # transcoding settings
       transcoding = {
         enableHardwareEncoding = true;
@@ -49,7 +50,7 @@
       torrentingPort = 6881;
       user = "jellyfin";
     };
-    
+
     prowlarr = {
       enable = true;
       package = pkgs.prowlarr;
@@ -63,7 +64,7 @@
       group = "jellyfin";
       user = "jellyfin";
       openFirewall = true; # 7878
-      dataDir = "/var/lib/radarr"; 
+      dataDir = "/var/lib/radarr";
     };
 
     sonarr = {
@@ -81,5 +82,5 @@
       openFirewall = true; # 8191
       port = 8191;
     };
-  }; 
+  };
 }
