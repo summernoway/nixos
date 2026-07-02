@@ -14,6 +14,7 @@
       AllowAgentForwarding = false;
       PermitTunnel = false;
       AllowUsers = [ "summer" ];
+      LogLevel = "VERBOSE";
     };
     # defines location of host keys
     hostKeys = [
@@ -32,6 +33,5 @@
       "192.168.0.0/16"
     ];
     bantime = "12h";
-    };
   };
 }
