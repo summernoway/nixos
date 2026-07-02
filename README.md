@@ -20,40 +20,42 @@ My NixOS home media/storage server.
 
 1. boot from nixos minimal installation media
 
-2. partition disks as desired (e.g. using cfdisk).
+2. partition disks as desired (e.g. using ```cfdisk```).
 
 3. make filesystems as required
-
-      mkfs.fat -F 32 /dev/sdx
-      mkfs.xfs /dev/sdx
-      etc.
+```
+mkfs.fat -F 32 /dev/sdx
+mkfs.xfs /dev/sdx
+```
+etc.
 
 4. mount filesystems as required
-
-      mount /dev/sdx (root) /mnt
-      mount --mkdir /dev/sdx (boot) /mnt/boot
-
+```
+mount /dev/sdx (root) /mnt
+mount --mkdir /dev/sdx (boot) /mnt/boot
+```
 5. make directory /mnt/etc
-
-      mkdir -p /mnt/etc
-
+```
+mkdir -p /mnt/etc
+```
 6. clone this repo
-
-      git clone https://codeberg.org/summernoway/nixos.git
-
+```
+git clone https://codeberg.org/summernoway/nixos.git
+```
 7. if required, regenerate and edit hardware-configuration.nix as required
-
-      nixos-generate-config --show-hardware-config >> /mnt/etc/nixos/hardware-configuration.nix
-      vim /mnt/etc/nixos/hardware-configuration.nix
-
+```
+nixos-generate-config --show-hardware-config >> /mnt/etc/nixos/hardware-configuration.nix
+vim /mnt/etc/nixos/hardware-configuration.nix
+```
 8. if required, edit configuration.nix to enable/disable modules
-
-      vim /mnt/etc/nixos/configuration.nix
-
+```
+vim /mnt/etc/nixos/configuration.nix
+```
 9. deploy nixos
-
-      nixos-install --flake /mnt/etc/nixos/.#lugia
-      reboot
+```
+nixos-install --flake /mnt/etc/nixos/.#lugia
+reboot
+```
 
 ## todo
 
