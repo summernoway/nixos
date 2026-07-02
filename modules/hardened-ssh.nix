@@ -4,6 +4,7 @@
 
 {
   services.openssh = {
+    # essentially /etc/sshd_config settings
     settings = {
       PasswordAuthentication = false;
       PermitRootLogin = "no";
@@ -14,9 +15,23 @@
       PermitTunnel = false;
       AllowUsers = [ "summer" ];
     };
+    # defines location of host keys
     hostKeys = [
       { type = "ed25519"; path = "/etc/ssh/ssh_host_ed25519_key"; }
       { type = "rsa"; bits = 4096; path = "/etc/ssh/ssh_host_rsa_key"; }
     ];
+  };
+
+  # fail2ban configuration
+  services.fail2ban = {
+    enable = true;
+    maxretry = 5;
+    # whitelist
+    ignoreIP = [
+      "127.0.0.1/8"
+      "192.168.0.0/16"
+    ];
+    bantime = "12h";
+    };
   };
 }

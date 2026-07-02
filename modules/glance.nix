@@ -1,14 +1,19 @@
+# glance is a homepage. used mainly for shortcuts to my services that i can use on my pc/phone.
 { config, pkgs, ... }:
+
 {
   services.glance = {
     enable = true;
-    openFirewall = true;
+    openFirewall = true; # port configured below
     settings = {
       server.port = 8888;
-      server.host = "0.0.0.0";
+      server.host = "0.0.0.0"; # required
+
+      # configures what widgets are displayed on the page/written to application config file.
       pages = [
         {
           name = "Home";
+
           columns = [
             {
               size = "small";
@@ -22,6 +27,7 @@
                 }
               ];
             }
+
             {
               size = "full";
               widgets = [
