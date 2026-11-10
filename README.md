@@ -74,6 +74,6 @@ reboot
 
 ## todo
 
-1. I acknowledge that a big failure point of this system is the fact that there are only 2 one drives, neither of which are redundant. Purchase another 10tb hdd to ensure that the main data is redundant.
+1. I acknowledge that a big failure point of this system is the fact that there are only 2 one drives, neither of which are redundant. Purchase another 10tb hdd to ensure that the main data is redundant. Unfortunately, storage is very expensive at the moment.
 2. Get qBittorrent torrent traffic to run through AirVPN/wireguard.
 3. TLS/Https for services.
