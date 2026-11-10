@@ -1,18 +1,19 @@
 # Arceus Home Server
 
 My NixOS home media/storage server.
+Note this is a low stakes personal project that is done in my own free time. Config shared for reference + for my own convenience.
 
 ## Modules
 
-❄️ **backups.nix** - configuration for borg, an automated backups service. configured to back up /var/lib (application states)
+❄️ **backups.nix** - configuration for borg, an automated backups service. configured to back up /var/lib (application states) to big 10tb hard drive. accessible over nfs if needed.
 
 ❄️ **glance.nix** - simple "homepage"/web application for monitoring services + shortcuts to them
 
-❄️ **hardened-ssh.nix** - hardened ssh configuration
+❄️ **hardened-ssh.nix** - hardened ssh configuration. key-only auth, fail2ban, no root login.
 
-❄️ **jellyfin-stack.nix** - configuration for jellyfin + *arr stack + qbittorrent. automated media streaming services.
+❄️ **jellyfin-stack.nix** - configuration for jellyfin + *arr stack + qbittorrent. automated media streaming services. all running as unprivleged jellyfin user.
 
-❄️ **shares.nix** - configuration for NFS shares.
+❄️ **shares.nix** - configuration for NFS shares. LAN only, restricted to 192.168.x.x
 
 ❄️ **vikunja.nix** - configuration for vikunja, a web based todo app.
 
