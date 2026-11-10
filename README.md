@@ -1,7 +1,18 @@
 # Arceus Home Server
 
 My NixOS home media/storage server.
+
 Note this is a low stakes personal project that is done in my own free time. Config shared for reference + for my own convenience.
+
+## Why NixOS?
+
+I am running my server on NixOS for a few main reasons.
+
+1. If a failure does occur with the boot drive, then it will be **trivial to redeploy** the OS along with my configurations for programs. See instructions below.
+2. It allows me to express my precise configuration in code (aka. **infrastructure-as-code**).
+3. **Rollbacks**. As this is a hobby/tinkerer project, if I do mess something up then recovery is straightforward. Simply reboot into an older known working generation and get back up and running in no time.
+4. **Portability**. Because of the small file size of these configuration files, I can take them and work on them anywhere. E.g. if I have some free time at work, or want to test something on a VM, I can simply deploy my configuration in a vm along with a module for the service/app I want to test, before deploying to "production".
+
 
 ## Modules
 
@@ -61,4 +72,6 @@ reboot
 
 ## todo
 
-write this todo list
+1. I acknowledge that a big failure point of this system is the fact that there are only 2 one drives, neither of which are redundant. Purchase another 10tb hdd to ensure that the main data is redundant.
+2. Get qBittorrent torrent traffic to run through AirVPN/wireguard.
+3. TLS/Https for services.
