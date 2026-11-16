@@ -16,15 +16,18 @@
   };
 
   # configures the server
-  services.nfs.server = {
-    enable = true;
-    lockdPort = 4001;
-    mountdPort = 4002;
-    statdPort = 4000;
-    extraNfsdConfig = '''';
-    exports = ''
-      /export/moosicgame  *(rw,sync,no_subtree_check)
-      /export/bebishare *(rw,sync,no_subtree_check)
-      '';
+  services.nfs = {
+    server = {
+      enable = true;
+      lockdPort = 4001;
+      mountdPort = 4002;
+      statdPort = 4000;
+      extraNfsdConfig = '''';
+      exports = ''
+        /export/moosicgame  *(rw,sync,no_subtree_check,insecure)
+        /export/bebishare *(rw,sync,no_subtree_check,insecure)
+        '';
+    };
+    settings.mountd.manage-gids = true;
   };
 }
