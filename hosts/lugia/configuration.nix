@@ -1,16 +1,13 @@
+# description: summer's gaming pc/workstation
 { config, lib, pkgs, ... }:
 
 {
   imports =
     [
       ./hardware-configuration.nix
-#      ./vmhw.nix
-      ./modules/hardened-ssh.nix
-      ./modules/shares.nix
-      ./modules/jellyfin-stack.nix
-      ./modules/glance.nix
-      ./modules/vikunja.nix
-      ./modules/backups.nix
+      ./../modules/firefox.nix
+      ./../modules/nvidia.nix
+      ./../modules/steam.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -33,14 +30,6 @@
         tree
       ];
     };
-
-    users.melody = {
-      isNormalUser = true;
-      extraGroups = [ "jellyfin" ];
-      packages = with pkgs; [
-        tree
-      ];
-    };
   };
 
   # packages installed system wide
@@ -52,6 +41,7 @@
     cifs-utils
     hyfetch
     p7zip
+    p7zip-unrar
   ];
 
   # some programs need SUID wrappers, can be configured further or are
@@ -66,8 +56,8 @@
   services.openssh.enable = true;
 
   # Open ports in the firewall. 22 for ssh, rest required for NFSv3 support, because windows is garbage. Other ports are enabled per-module
-  networking.firewall.allowedTCPPorts = [ 3000 8888 111  2049 4000 4001 4002 20048 22 ];
-  networking.firewall.allowedUDPPorts = [ 3000 8888 111  2049 4000 4001 4002 20048 22 ];
+  networking.firewall.allowedTCPPorts = [ 22 ];
+  networking.firewall.allowedUDPPorts = [ 22 ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

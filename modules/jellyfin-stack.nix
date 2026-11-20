@@ -83,4 +83,25 @@
       port = 8191;
     };
   };
+
+  # below is VPN namespace configuration for qbittorrent's torrent traffic. configured using github:Maroka-chan/VPN-confinement community flake
+  vpnNamespaces.wg = {
+    enable = true;
+    wireguardConfigFile = /. + "/secrets/defaultwg.conf";
+    allowedIngress = [
+      "192.168.0.0/24"
+    ];
+    portMappings = [
+      8080 # webui port
+    ];
+    openVPNPorts = [
+      { port = 6881; protocol = "both"; } # open torrenting ports on vpn
+    ];
+  };
+
+  # systemd service that confines qbittorrent to the namespace configured above
+  systemd.services.qbittorrent.vpnCOnfinement = {
+    enable = true;
+    vpnNamespace = "wg";
+  };
 }

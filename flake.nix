@@ -20,7 +20,7 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.summer = import ./home.nix;
+            users.summer = import ./hosts/arceus/home.nix;
             backupFileExtension = "backup";
           };
         }
