@@ -6,6 +6,7 @@
     [
       ./hardware-configuration.nix
       ./../../modules/desktop
+      ./../../modules/nvidia.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
