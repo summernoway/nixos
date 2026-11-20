@@ -11,7 +11,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "arceus";
+  networking.hostName = "lugia";
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/London";
