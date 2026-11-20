@@ -2,7 +2,11 @@
 
 {
   imports = [
-    ./../modules/home/vim.nix
+    ./../../modules/home/
+  ];
+
+  disabledModules = [
+    ./../../modules/home/firefox.nix
   ];
 
   home.username = "summer";

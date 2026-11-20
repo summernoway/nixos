@@ -6,12 +6,7 @@
     [
       ./hardware-configuration.nix
 #      ./vmhw.nix
-      ./../modules/hardened-ssh.nix
-      ./../modules/shares.nix
-      ./../modules/jellyfin-stack.nix
-      ./../modules/glance.nix
-      ./../modules/vikunja.nix
-      ./../modules/backups.nix
+      ./../../modules/server
     ];
 
   boot.loader.systemd-boot.enable = true;

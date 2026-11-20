@@ -5,9 +5,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./../modules/firefox.nix
-      ./../modules/nvidia.nix
-      ./../modules/steam.nix
+      ./../../modules/desktop
     ];
 
   boot.loader.systemd-boot.enable = true;

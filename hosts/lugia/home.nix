@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./../modules/home/vim.nix
-    ./../modules/home/firefox.nix
+    ./../../modules/home/vim.nix
+    ./../../modules/home/firefox.nix
   ];
 
   home.username = "summer";
