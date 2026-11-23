@@ -2,7 +2,7 @@
   description = "multihost nixos config for systems at home";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-26.05-small";
+    nixpkgs.url = "nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
@@ -43,6 +43,22 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             users.summer = import ./hosts/lugia/home.nix;
+            backupFileExtension = "backup";
+          };
+        }
+      ];
+    };
+
+    nixosConfigurations.mesprit = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./hosts/mesprit/configuration.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.summer = import ./hosts/mesprit/home.nix;
             backupFileExtension = "backup";
           };
         }

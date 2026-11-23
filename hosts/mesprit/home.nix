@@ -12,8 +12,8 @@
       enable = true;
       shellAliases = {
         nc = "sudo vim /etc/nixos";
-        nrs = "sudo nixos-rebuild switch --flake /etc/nixos/.#lugia";
-        nrsu = "sudo nix flake update && sudo nixos-rebuild switch --flake /etc/nixos.#lugia";
+        nrs = "sudo nixos-rebuild switch --flake /etc/nixos/.#mesprit";
+        nrsu = "sudo nix flake update && sudo nixos-rebuild switch --flake /etc/nixos.#mesprit";
       };
     };
   };

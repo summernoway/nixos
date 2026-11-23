@@ -6,13 +6,12 @@
     [
       ./hardware-configuration.nix
       ./../../modules/desktop
-      ./../../modules/nvidia.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "lugia";
+  networking.hostName = "mesprit";
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/London";
@@ -40,7 +39,7 @@
     cifs-utils
     hyfetch
     p7zip
-    p7zip-unrar
+    p7zip-rar
   ];
 
   # some programs need SUID wrappers, can be configured further or are
