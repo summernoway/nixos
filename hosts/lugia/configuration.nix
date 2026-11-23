@@ -59,6 +59,7 @@
   networking.firewall.allowedUDPPorts = [ 22 ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.allowUnfree = true;
 
   # do not change. defines the version of the configuration language, rather than the OS
   system.stateVersion = "26.05";
