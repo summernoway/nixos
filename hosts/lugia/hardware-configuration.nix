@@ -4,40 +4,26 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [ ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/b68a2abb-327d-4c8a-891a-e68333858a8d";
-      fsType = "xfs";
+    { device = "/dev/disk/by-uuid/1be0b789-bf59-4ef7-885a-7e0ce2ac17e6";
+      fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/82AC-137A";
+    { device = "/dev/disk/by-uuid/5A8B-61E6";
       fsType = "vfat";
-      options = [ "fmask=0077" "dmask=0077" ];
+      options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  fileSystems."/srv/bebishare" =
-    { device = "/dev/disk/by-uuid/19f8183e-f70d-41fc-9dc1-c467a1df9025";
-      fsType = "btrfs";
-    };
-
-  fileSystems."/srv/moosicgame" =
-    { device = "/dev/disk/by-uuid/089e1055-bcea-4d87-986a-bbb2c086b294";
-      fsType = "btrfs";
-    };
-
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/c8d11300-d789-4893-82c9-296d8b79cb79"; }
-    ];
+  swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  virtualisation.hypervGuest.enable = true;
 }

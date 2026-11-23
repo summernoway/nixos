@@ -39,9 +39,10 @@
     git
     btop
     cifs-utils
+    foot
     hyfetch
     p7zip
-    p7zip-unrar
+    p7zip-rar
   ];
 
   # some programs need SUID wrappers, can be configured further or are
