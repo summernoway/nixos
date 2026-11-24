@@ -41,13 +41,6 @@
 
   # packages installed system wide
   environment.systemPackages = with pkgs; [
-    vim
-    wget
-    git
-    btop
-    cifs-utils
-    hyfetch
-    p7zip
   ];
 
   # some programs need SUID wrappers, can be configured further or are

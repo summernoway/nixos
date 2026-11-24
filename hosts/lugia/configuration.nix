@@ -34,15 +34,11 @@
 
   # packages installed system wide
   environment.systemPackages = with pkgs; [
-    vim
-    wget
-    git
-    btop
-    cifs-utils
-    foot
-    hyfetch
-    p7zip
-    p7zip-rar
+    obs-studio
+    wine
+    audacity
+    openjdk
+    openjfx
   ];
 
   # some programs need SUID wrappers, can be configured further or are
