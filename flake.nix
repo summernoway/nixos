@@ -7,9 +7,10 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    vpn-confinement.url = "github:Maroka-chan/VPN-confinement";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }: {
+  outputs = { self, nixpkgs, home-manager, vpn-confinement, ... }: {
     nixosConfigurations.arceus = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -23,6 +24,7 @@
             backupFileExtension = "backup";
           };
         }
+        vpn-confinement.nixosModules.default
       ];
     };
   };
