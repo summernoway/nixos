@@ -3,7 +3,10 @@
 {
   imports = [
     ./firefox.nix
-    ./hyprland.nix
+    ./niri.nix
     ./steam.nix
   ];
+
+  programs.appimage.enable = true;
+  programs.appimage.binfmt = true;
 }
