@@ -7,6 +7,7 @@
 
   disabledModules = [
     ./../../modules/home/firefox.nix
+    ./../../modules/home/hyprland.nix
   ];
 
   home.username = "summer";

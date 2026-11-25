@@ -4,7 +4,6 @@
   imports = [
     ./firefox.nix
     ./vim.nix
+    ./niri.nix
   ];
-
-  home.file.".config/hypr".source = ./config/hypr;
 }
