@@ -4,5 +4,6 @@
   imports = [
     ./firefox.nix
     ./vim.nix
+    ./niri.nix
   ];
 }
